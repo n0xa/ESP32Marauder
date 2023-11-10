@@ -35,6 +35,11 @@ bool SDInterface::initSD() {
       SPIClass SPI_EXT;
       SPI_EXT.begin(SPI_SCK, SPI_MISO, SPI_MOSI, SD_CS);
       if (!SD.begin(SD_CS, SPI_EXT)) {
+    #elif defined(MARAUDER_M5CARDPUTER)
+      enum { SPI_SCK = 40, SPI_MISO = 39, SPI_MOSI = 14 };
+      SPIClass SPI_EXT;
+      SPI_EXT.begin(SPI_SCK, SPI_MISO, SPI_MOSI, SD_CS);
+      if (!SD.begin(SD_CS, SPI_EXT)) {    
     #else
       if (!SD.begin(SD_CS)) {
     #endif

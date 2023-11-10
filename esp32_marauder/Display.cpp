@@ -24,7 +24,7 @@ void Display::RunSetup()
     tft.setRotation(0); // Portrait
   #endif
 
-  #ifdef MARAUDER_M5STICKC
+  #if defined(MARAUDER_M5STICKC) || defined(MARAUDER_M5CARDPUTER)
     tft.setRotation(1);
   #endif
 
